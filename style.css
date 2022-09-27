@@ -1,0 +1,92 @@
+*{
+  font-family: 'Josefin Slab', serif;
+  transition: 1s;
+}
+canvas {
+position: fixed;
+height: 100vh;
+width:100%;
+z-index: -1;
+top: 0;
+left: 0;
+}
+body{
+  color:#ffffff80;
+z-index: -10;
+  margin: 0;
+  padding: 0;
+  font-size:medium;
+}
+#nav {
+  height: 8vh;
+  width: 100%;
+  background-color: #ffffff25;
+  position: fixed;
+  top:0%;
+  left: 0%;
+  backdrop-filter: blur(5px);
+  line-height: 8vh;
+  font-size: x-large;
+  z-index: 10;
+  color: #ffffff;
+}
+#img {
+  flex:auto;
+ width: fit-content;
+
+}
+img{
+  flex: auto;
+  width: 35vw;
+  height: auto;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+}
+#line{
+  width:200px;
+  height:10px;
+  border-radius: 9px;
+  background-image: url("line.svg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100vh 100vw;
+  background-position: left;
+  margin-left: 10px;
+}
+
+.hidden{
+  opacity:0;
+transition:all 1s;
+filter: blur(5px);
+transform: rotate(100deg);
+transform: scale(0.5, 0.5);
+transform: translate(-50px, 20px);
+}
+.show{
+  filter: blur(0);
+  opacity: 1;
+  transform: rotate(0deg);
+  transform: scale(1,1);
+  transform: translate(0px, 0px);
+  }
+  .blur{
+    border-radius :5px 5px 20px 5px; 
+    font-size: x-large;
+    backdrop-filter:blur(5px); padding:10px; color:white;width:fit-content ;margin:10px;background-color:#ffffff0f
+  }
+  .left{
+    
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+ align-items: flex-end;
+    width: 99%;
+   text-align: right;
+  }
+  
+  
+  #scroll{
+    overflow: scroll;
+    height: 40px;
+    width: 100vw;
+  }
