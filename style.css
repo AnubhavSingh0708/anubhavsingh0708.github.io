@@ -49,7 +49,7 @@ img{
   background-image: url("line.svg");
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: 100vh 100vw;
+  background-size: cover;
   background-position: left;
   margin-left: 10px;
 }
