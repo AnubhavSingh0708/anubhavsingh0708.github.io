@@ -105,7 +105,7 @@
 <script type="importmap">
   {
     "imports": {
-      "three": "https://unpkg.com/three@0.144.0/build/three.module.js"
+      "three": "https://unpkg.com/three@0.145.0/build/three.module.js"
     }
   }
 </script>
@@ -174,7 +174,7 @@ moveCamera();
 function animate(){
   requestAnimationFrame(animate);
 //controls.update();
-
+camera.position.x =(window.pageXOffset)/10;
   renderer.render(scene, camera);
 }
 animate();
