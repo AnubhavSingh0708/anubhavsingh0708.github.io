@@ -119,6 +119,9 @@ document.body.appendChild( renderer.domElement );
 const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 500 );
 camera.position.set( 0, 0,350 );
 camera.lookAt( 0, 0, 0);
+  document.addEventListener("mousemove", function() {
+camera.position.x =(window.pageXOffset)/10;
+});
 //const controls = new OrbitControls( camera, renderer.domElement );
 //controls.update();
 scene.add(camera);
@@ -174,7 +177,6 @@ moveCamera();
 function animate(){
   requestAnimationFrame(animate);
 //controls.update();
-camera.position.x =(window.pageXOffset)/10;
   renderer.render(scene, camera);
 }
 animate();
