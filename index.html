@@ -119,12 +119,14 @@ document.body.appendChild( renderer.domElement );
 const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 500 );
 camera.position.set( 0, 0,350 );
 camera.lookAt( 0, 0, 0);
-  document.addEventListener("mousemove", function() {
-camera.position.x =(window.pageXOffset)/10;
+scene.add(camera);  
+document.addEventListener("mousemove", function() {
+camera.position.x =(window.pageXOffset)/3;
+camera.lookAt( 0, 0, 0);
 });
 //const controls = new OrbitControls( camera, renderer.domElement );
 //controls.update();
-scene.add(camera);
+
 renderer.render( scene, camera );
 function addStar() {
   const geometry = new THREE.BoxGeometry(1,1.2,1 );
