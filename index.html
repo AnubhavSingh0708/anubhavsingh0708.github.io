@@ -16,52 +16,62 @@
   </head>
   <body>
     <div id="nav"> &nbsp; Anubhav Singh</div><br><br><br><br>
-   <div class="box"> <span class="hidden" id="img"><img src="drawing-3.png" alt="Anubhav Singh"></span>
-  
-    <span class="hidden blur" style="font-size:xx-large ;height: fit-content; display:block; text-overflow:ellipsis;">
+    
+    <div class="content-layer">
+    <div class="hidden" style="color:#fff;font-size:10vh ;width:fit-content;height: fit-content; backdrop-filter:blur(10px);border-radius: 20px;">
   Hello World! <br>
-    I am Anubhav,Anubhav means experience which I don't have</span></div>
+    I am Anubhav,<br>Anubhav means experience which I don't have</div></div>
     <br><br><br>
+    <div class="content-layer" style="backdrop-filter:contrast(20000%)">
     <div id="line" class="hidden"></div>
     <div class="hidden blur ">
     maybe,I know some Html
     </div>how had I built this website without css and webgl?<br>
 😁I am good at font end and learning about dynamic hosting and request responce etc..
-
-    <br><br><br><div class="left">
+</div>
+    <br><br><br><div class="content-layer" style="backdrop-filter:sepia(90%) ;">
+      
+      <div class="left">
     <div id="line" class="hidden"></div>
     <div class="hidden blur ">
     latest
-    </div>
+   </div>
   🥱lazy guy not do programming very much
-  </div>
+  </div></div>
 
-    <br><br><br>
+    <br><br><br><div class="content-layer" style="backdrop-filter:brightness(1000%);">
+
     <div id="line" class="hidden"></div>
     <div class="hidden blur">
     Typing speed
     </div>🐱‍👤I have an outstanding typing speed of one word a minnenia🥵
-
-    <br><br><br><div class="left">
+</div>
+    <br><br><br><div class="content-layer" style="backdrop-filter: invert(70%); filter: invert(100%);">
+      
+      <div class="left">
     <div id="line" class="hidden"></div>
     <div class="hidden blur">
     my design
     </div>
     maximal by heart minimal by lazieness,
-  all the websites I make are minimal </div>
+  all the websites I make are minimal </div></div>
 
-    <br><br><br>
+    <br><br><br><div class="content-layer" style="backdrop-filter:blur(2px);">
+
     <div id="line" class="hidden"></div>
     <div class="hidden blur ">
    I made 
-    </div>I made world's most useless tool siteshake js and also badly made useless web apps which are burden to internet and github
-    <br><br><br><div class="left">
+    </div>I made world's most useless tool siteshake js and also badly made useless web apps which are burden to internet and github</div></div>
+   
+    <br><br><br><div class="content-layer" style="backdrop-filter:contrast(40%);">
+      
+      <div class="left">
       <div id="line" class="hidden"></div>
       <div class="hidden blur">
      IQ
-      </div>🤯Very big brain got 75% ar A grade in IQ test</div>
+      </div>🤯Very big brain got 75% or A grade in IQ test</div></div>
     <br><br><br><br><br><br>
-    <iframe src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__TlG92dUOE8wMkROVUI0Uk8wWEpHV1JOTVozMVRBQS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh;height:600px; width:100vw;" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+<!--<iframe src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__TlG92dUOE8wMkROVUI0Uk8wWEpHV1JOTVozMVRBQS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh;height:600px; width:100vw;" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>-->
     <br>
     <div id="scroll" class="blur">don't scroll &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
@@ -157,14 +167,14 @@ function moveCamera() {
 const t = document.body.getBoundingClientRect().top;
  var st = window.pageYOffset || document.documentElement.scrollTop; 
   if (st > lastScrollTop){
-     scrolldeg-=(t/1000);
+     scrolldeg-=(t/2000);
   } else {
-     scrolldeg+=(t/1000);
+     scrolldeg+=(t/2000);
   }
   lastScrollTop = st <= 0 ? 0 : st;
   
   
-  if (scrolldeg>=90){scrolldeg-=90;}else if(scrolldeg<0){
+  if (scrolldeg>=90){scrolldeg-=90;}else if(scrolldeg<=0){
 scrolldeg+=90
   }
 
@@ -177,10 +187,16 @@ scrolldeg+=90
 
 document.body.onscroll = moveCamera;
 moveCamera();
+window.onresize = function () {
 
+camera.aspect = window.innerWidth / window.innerHeight;
+camera.updateProjectionMatrix();
+
+renderer.setSize( window.innerWidth, window.innerHeight );
+
+};
 function animate(){
   requestAnimationFrame(animate);
-//controls.update();
   renderer.render(scene, camera);
 }
 animate();

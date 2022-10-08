@@ -11,11 +11,12 @@ top: 0;
 left: 0;
 }
 body{
+  overflow-x: hidden;
   color:#ffffff80;
 z-index: -10;
   margin: 0;
   padding: 0;
-  font-size:medium;
+  font-size:20px;
 }
 #nav {
   height: 8vh;
@@ -26,22 +27,11 @@ z-index: -10;
   left: 0%;
   backdrop-filter: blur(5px);
   line-height: 8vh;
-  font-size: x-large;
+  font-size: xx-large;
   z-index: 10;
   color: #ffffff;
 }
-#img {
-  flex:auto;
- width: fit-content;
 
-}
-img{
-  flex: auto;
-  width: 35vw;
-  height: auto;
-  border-radius: 50px;
-  backdrop-filter: blur(10px);
-}
 #line{
   width:200px;
   height:10px;
@@ -58,9 +48,7 @@ img{
   opacity:0;
 transition:all 1s;
 filter: blur(5px);
-transform: rotate(100deg);
-transform: scale(0.5, 0.5);
-transform: translate(-50px, 20px);
+transform: rotate(30deg) scale(0.5, 0.5) translate(-50px, 20px)translateZ(20px);
 }
 .show{
   filter: blur(0);
@@ -75,16 +63,20 @@ transform: translate(-50px, 20px);
     backdrop-filter:blur(5px); padding:10px; color:white;width:fit-content ;margin:10px;background-color:#ffffff0f
   }
   .left{
-    
+    text-align: right;
+    width: 100vw;
     overflow: hidden;
     display: flex;
     flex-direction: column;
  align-items: flex-end;
-    width: 99%;
-   text-align: right;
+ float: right;
   }
   
-  
+  .content-layer{
+padding-top: 20vh;
+height:100vh;
+width: 99vw;
+  }
   #scroll{
     overflow: scroll;
     height: 40px;
