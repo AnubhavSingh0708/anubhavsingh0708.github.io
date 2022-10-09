@@ -6,17 +6,17 @@ canvas {
 position: fixed;
 height: 100vh;
 width:100%;
-z-index: -10;
+z-index: -1;
 top: 0;
 left: 0;
 }
 body{
   overflow-x: hidden;
-  color:#ffffff80;
+  color:#ffffff;
 z-index: -10;
   margin: 0;
   padding: 0;
-  font-size:20px;
+  font-size:30px;
 }
 #nav {
   height: 8vh;
@@ -60,7 +60,7 @@ transform: rotate(30deg) scale(0.5, 0.5) translate(-50px, 20px)translateZ(20px);
   .blur{
     border-radius :5px 5px 20px 5px; 
     font-size: xx-large;
-    backdrop-filter:blur(4px); padding:10px; color:white;width:fit-content ;margin:10px;background-color:#ffffff0f;
+    backdrop-filter:blur(5px); padding:10px; color:white;width:fit-content ;margin:10px;background-color:#ffffff0f;
   }
   .left{
     text-align: right;
@@ -82,3 +82,6 @@ width: 99vw;
     height: 40px;
     width: 100vw;
   }
+img{
+  
+}
