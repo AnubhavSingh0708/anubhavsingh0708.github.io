@@ -30,7 +30,7 @@ function addStar() {
   scene.add(mesh);
 }
 Array(3000).fill().forEach(addStar);
-const bgTexture = new THREE.TextureLoader().load('drawing5.svg');
+const bgTexture = new THREE.TextureLoader().load('bg.png');
 scene.background = bgTexture;
 
 var lastScrollTop = 0;
