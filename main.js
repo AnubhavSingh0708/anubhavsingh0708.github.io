@@ -13,7 +13,10 @@ camera.lookAt( 0, 0, 0);
 scene.add(camera);
 renderer.render( scene, camera );
 function addStar() {
-  const geometry = new THREE.BoxGeometry(1,1.2,1 );
+  var v1 = new THREE.Vector3(0, 0, 0);
+var v2 = new THREE.Vector3(30, 0, 0);
+var v3 = new THREE.Vector3(30, 30, 0);
+  const geometry = new new THREE.Triangle(v1, v2, v3);
   const material = new THREE.LineBasicMaterial( {
    
     linewidth: 0.01,

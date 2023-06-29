@@ -138,40 +138,49 @@
     }
   }
 </script>
-      <script type="module">
+      <script type="module" defer>
 import * as THREE from 'three';
 var rellax = new Rellax('.rellax'); 
+
 const scene = new THREE.Scene();
 const renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 500 );
-camera.position.set( 0, 0,350 );
-camera.lookAt( 0, 0, 0);
+camera.position.set( 450, 0,);
 scene.add(camera);  
 document.addEventListener("mousemove", function() {
 camera.position.x =(window.pageXOffset)/3;
-camera.lookAt( 0, 0, 0);
+camera.lookAt( 0,0,0);
 });
 //const controls = new OrbitControls( camera, renderer.domElement );
 //controls.update();
+ 
 
-renderer.render( scene, camera );
+var cls =[Math.floor(Math.random() * (250 - 0) + 0) , Math.floor(Math.random() * (250 - 0) + 0),Math.floor(Math.random() * (250 - 0) + 0) , Math.floor(Math.random() * (250 - 0) + 0),
+Math.floor(Math.random() * (250 - 0) + 0) , Math.floor(Math.random() * (250 - 0) + 0) ,Math.floor(Math.random() * (250 - 0) + 0),
+Math.floor(Math.random() * (250 - 0) + 0) , Math.floor(Math.random() * (250 - 0) + 0) ,Math.floor(Math.random() * (250 - 0) + 0),
+Math.floor(Math.random() * (250 - 0) + 0) , Math.floor(Math.random() * (250 - 0) + 0) ,Math.floor(Math.random() * (250 - 0) + 0),
+Math.floor(Math.random() * (250 - 0) + 0) , Math.floor(Math.random() * (250 - 0) + 0) ,Math.floor(Math.random() * (250 - 0) + 0),
+];
+
 function addStar() {
-  const geometry = new THREE.BoxGeometry(1,1.2,1 );
+
+  const geometry = new THREE.BoxGeometry(0.9,0.9, 0.9 ,1) 
   const material = new THREE.LineBasicMaterial( {
     linewidth: 0.01,
     linecap: 'round', 
     linejoin:  'round' 
   } );
   const mesh = new THREE.Mesh(geometry, material);
+  var clch =Math.floor(Math.random() * (4 - 0) + 0);
+ var x= cls[clch*3]+ Math.pow( Math.random() * (4+ 4) -4,3);
+ var y= cls[(clch*3)+1]+Math.pow( Math.random() * (4+4) -4,3);
+ var z= cls[(clch*3)+2]+Math.pow( Math.random() * (4+4 ) -4,3);
+ //var [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(250));
 
-  const [x, y, z] = Array(3)
-  .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(250));
-
-  mesh.position.set(x, y, z);
+  mesh.position.set(125-x, 125-y,125- z);
   scene.add(mesh);
 }
 Array(3000).fill().forEach(addStar);
@@ -182,12 +191,12 @@ var scrolldeg=0;
 function moveCamera() {
 const t = document.body.getBoundingClientRect().top;
  var st = window.pageYOffset || document.documentElement.scrollTop; 
-  scrolldeg=t/-13;
+  scrolldeg=t/-13.7;
   
-  while (scrolldeg>=90){
+  if (scrolldeg>=90){
 scrolldeg-=90;
   }
-while (scrolldeg<0){
+if (scrolldeg<=0){
   scrolldeg+=90;
 }
 
