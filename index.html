@@ -148,7 +148,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 800 );
-camera.position.set( 450, 0,0);
+camera.position.set( 0, 0,0);
 scene.add(camera);  
 document.addEventListener("mousemove", function() {
 camera.position.x =(window.pageXOffset)/3;
