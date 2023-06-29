@@ -198,13 +198,13 @@ const t = document.body.getBoundingClientRect().top;
   if (scrolldeg<=360){
 scrolldeg-=270;
 
-   scrolldeg2=(90-scrolldeg)*(Math.PI / 180);
-  camera.position.z = 1-Math.sin(scrolldeg2) * 250;
-  camera.position.y = Math.cos(scrolldeg2) * 250;
+   scrolldeg2=scrolldeg*(Math.PI / 180);
+  camera.position.z = Math.sin(scrolldeg2) * 250;
+  camera.position.y = Math.cos(scrolldeg2) * -250;
   camera.lookAt(0,0,0);
   }else if(scrolldeg<=270){
     scrolldeg-=180;
-    scrolldeg2=(90-scrolldeg)*(Math.PI / 180);
+    scrolldeg2=scrolldeg*(Math.PI / 180);
   camera.position.z =1- Math.sin(scrolldeg2) * 250;
   camera.position.y = 1-Math.cos(scrolldeg2) * 250;
   camera.lookAt(0,0,0);
@@ -213,9 +213,9 @@ scrolldeg-=270;
   camera.rotateZ (0);
   }else if(scrolldeg<=180){
     scrolldeg-=90;
-    scrolldeg2=(90-scrolldeg)*(Math.PI / 180);
-  camera.position.z = Math.sin(scrolldeg2) * 250;
-  camera.position.y = 1-Math.cos(scrolldeg2) * 250;
+    scrolldeg2=scrolldeg*(Math.PI / 180);
+  camera.position.z = Math.sin(scrolldeg2) * -250;
+  camera.position.y = Math.cos(scrolldeg2) * 250;
   camera.lookAt(0,0,0);
   camera.rotateX (0);
   camera.rotateY (0);
