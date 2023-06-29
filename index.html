@@ -147,8 +147,8 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
-const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 500 );
-camera.position.set( 450, 0,);
+const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 800 );
+camera.position.set( 450, 0,0);
 scene.add(camera);  
 document.addEventListener("mousemove", function() {
 camera.position.x =(window.pageXOffset)/3;
@@ -178,7 +178,7 @@ function addStar() {
  var x= cls[clch*3]+ Math.pow( Math.random() * (4+ 4) -4,3);
  var y= cls[(clch*3)+1]+Math.pow( Math.random() * (4+4) -4,3);
  var z= cls[(clch*3)+2]+Math.pow( Math.random() * (4+4 ) -4,3);
- //var [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(250));
+ //var [x, y, z] = Array(3).fill().map(() => THRzEE.MathUtils.randFloatSpread(250));
 
   mesh.position.set(125-x, 125-y,125- z);
   scene.add(mesh);
@@ -192,18 +192,44 @@ function moveCamera() {
 const t = document.body.getBoundingClientRect().top;
  var st = window.pageYOffset || document.documentElement.scrollTop; 
   scrolldeg=t/-13.7;
-  
-  if (scrolldeg>=90){
-scrolldeg-=90;
-  }
-if (scrolldeg<=0){
-  scrolldeg+=90;
-}
+  var scrolldeg2;
+  console.log(scrolldeg);
+  if (scrolldeg>=360){scrolldeg-=360;}
+  if (scrolldeg<=360){
+scrolldeg-=270;
 
-  var scrolldeg2=scrolldeg*(Math.PI / 180);
+   scrolldeg2=(90-scrolldeg)*(Math.PI / 180);
+  camera.position.z = 1-Math.sin(scrolldeg2) * 250;
+  camera.position.y = Math.cos(scrolldeg2) * 250;
+  camera.lookAt(0,0,0);
+  }else if(scrolldeg<=270){
+    scrolldeg-=180;
+    scrolldeg2=(90-scrolldeg)*(Math.PI / 180);
+  camera.position.z =1- Math.sin(scrolldeg2) * 250;
+  camera.position.y = 1-Math.cos(scrolldeg2) * 250;
+  camera.lookAt(0,0,0);
+  camera.rotateX (Math.PI);
+  camera.rotateY (0);
+  camera.rotateZ (0);
+  }else if(scrolldeg<=180){
+    scrolldeg-=90;
+    scrolldeg2=(90-scrolldeg)*(Math.PI / 180);
+  camera.position.z = Math.sin(scrolldeg2) * 250;
+  camera.position.y = 1-Math.cos(scrolldeg2) * 250;
+  camera.lookAt(0,0,0);
+  camera.rotateX (0);
+  camera.rotateY (0);
+  camera.rotateZ (0);
+  }else if(scrolldeg<=90){
+     scrolldeg2=scrolldeg*(Math.PI / 180);
   camera.position.z = Math.sin(scrolldeg2) * 250;
   camera.position.y = Math.cos(scrolldeg2) * 250;
   camera.lookAt(0,0,0);
+  camera.rotateX (0);
+  camera.rotateY (0);
+  camera.rotateZ (0);
+  }
+
 }
 
 document.body.onscroll = moveCamera;
