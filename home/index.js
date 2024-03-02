@@ -256,7 +256,7 @@ x=coor.x+50;
 var triggered=false;
 document.getElementById("cont").addEventListener("scroll",function(event){
 
-if(document.getElementById("cont").scrollTop < 400)   {
+if(document.getElementById("cont").scrollTop < 100)   {
    document.getElementById("texth").innerHTML="Html";
 }
 else if (document.getElementById("cont").scrollTop<=2*window.innerHeight-100){
