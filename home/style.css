@@ -53,19 +53,20 @@ color:#585858;
     top: 0;
     left: 0;
     margin-left: -5.5px;
-
+    padding: 0;
     width: 99vw;
     height: 100vh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+   /* scroll-behavior: smooth;*/
 
 }
 .container > div{
      scroll-snap-align: center;
      height: 100%;
      width: 100%;
+     overflow: hidden;
 }
 #texth{
     width: 100%;
@@ -89,6 +90,7 @@ color:#585858;
     font-size: 8.9px;
     line-height: 10px;
     color: #00FF00;
+    overflow: hidden;
 }
 .c1{background-color: #ff483a;
     font-size: 9.5px;}
@@ -112,6 +114,8 @@ a{
     text-decoration: none;
 }
 #scrollbtns{
+    display: none;
+    z-index: 10;
     width: 70px;
     height: fit-content;
     position: sticky;
@@ -121,6 +125,7 @@ a{
 
 }
 #scrollbtns > button{
+    z-index: 12;
     width: 50px;
     height:50px;
     box-shadow: none;

@@ -96,7 +96,7 @@ else if(4*window.innerHeight<scrollam){
    generateGalaxy();
    scrollama=scrollam - window.innerHeight*2;
 scrollama=scrollama/1200;
-var camr=27 -scrollama*3;
+var camr=27 -scrollama*3.5;
 
 camera.position.set(Math.cos(scrollama)*camr,camr/6,Math.sin(scrollama)*camr);
 camera.lookAt(0,0,0);
@@ -253,10 +253,13 @@ x=coor.x+50;
 
      
 }}
+
+document.getElementById('cont').scrollTo(0,350);
+
 var triggered=false;
 document.getElementById("cont").addEventListener("scroll",function(event){
-
-if(document.getElementById("cont").scrollTop < 100)   {
+document.getElementById("scrollbtns").style.display="block";
+if(document.getElementById("cont").scrollTop < window.innerHeight)   {
    document.getElementById("texth").innerHTML="Html";
 }
 else if (document.getElementById("cont").scrollTop<=2*window.innerHeight-100){
