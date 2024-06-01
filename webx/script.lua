@@ -9,6 +9,7 @@ function query(messages)
         headers = headers,
         body = '{ "inputs": ' .. messages .. '}'
     })
+end
 
 print()
 get("input").on_submit(function(content)
