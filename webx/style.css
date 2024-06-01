@@ -1,0 +1,18 @@
+body{
+    align-items:center;
+    color: #ffffff;
+    font-weight:ultralight;
+    
+}
+input{
+    border-radius: 20px;
+    padding: 20px;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    margin :20px;
+    width: 80%;
+}
+h1{
+    font-size:20px;
+}
