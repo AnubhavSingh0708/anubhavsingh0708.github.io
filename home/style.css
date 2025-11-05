@@ -91,7 +91,7 @@ color:#585858;
     line-height: 10px;
     color: #00FF00;
     overflow: hidden;
-    word-wrap: normal;
+    white-space: nowrap;
 }
 .c1{background-color: #ff483a;
     font-size: 9.5px;}
