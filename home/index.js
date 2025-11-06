@@ -477,3 +477,64 @@ if ('serviceWorker' in navigator) {
      .then(() => { console.log('Service Worker Registered'); });
  }
  
+ const container = document.getElementById('css-demo');
+
+
+    const baseItemWidth = 100;
+    const baseItemHeight = 100;
+    const gap = 10;
+
+
+
+    function populateGrid() {
+      container.innerHTML = '';
+
+    
+      const availableWidth = container.clientWidth;
+      const availableHeight = container.clientHeight;
+
+      const style = getComputedStyle(container);
+      const paddingX = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+      const paddingY = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+
+      const netWidth = availableWidth - paddingX;
+      const netHeight = availableHeight - paddingY;
+
+  
+      const cols = Math.floor((netWidth + gap) / (baseItemWidth + gap));
+      const rows = Math.floor((netHeight + gap) / (baseItemHeight + gap));
+
+      const totalBoxes = cols * rows;
+
+      container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+      container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+      
+      for (let i = 0; i < totalBoxes; i++) {
+        const row = Math.floor(i / cols);
+        const col = i % cols;
+
+ 
+        const distanceFromTopRight = Math.sqrt(
+          Math.pow(row, 2) + Math.pow((cols - 1 - col), 2)
+        );
+
+     
+        const animationDelay = distanceFromTopRight * 0.12;
+
+     
+        const blob = document.createElement('div');
+        blob.classList.add('blob');
+        blob.id = `blob1-${i + 1}`;
+
+        blob.style.animationDelay = `${animationDelay}s`;
+
+       
+
+        container.appendChild(blob);
+      }
+    }
+
+
+    populateGrid();
+    window.addEventListener('resize', populateGrid);
